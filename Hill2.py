@@ -1,12 +1,13 @@
 import numpy as np
 from egcd import egcd
 
+#memasukkan alphabet
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 letter_to_index = dict(zip(alphabet, range(len(alphabet))))
 index_to_letter = dict(zip(range(len(alphabet)), alphabet))
 
-
+#membuat codingan matrix
 def matrix_mod_inv(matrix, modulus):
     det = int(np.round(np.linalg.det(matrix)))
     det_inv = egcd(det, modulus)[1] % modulus
@@ -16,7 +17,7 @@ def matrix_mod_inv(matrix, modulus):
 
     return matrix_modulus_inv
 
-
+#Codingan enkripsi
 def encrypt(message, K):
     encrypted = ""
     message_in_numbers = []
@@ -44,7 +45,7 @@ def encrypt(message, K):
 
     return encrypted
 
-
+#codingan deskripsi
 def decrypt(cipher, Kinv):
     decrypted = ""
     cipher_in_numbers = []
@@ -68,7 +69,7 @@ def decrypt(cipher, Kinv):
 
     return decrypted
 
-
+#Memasukkan text dan key nya,serta mengeluarkan hasil enkripsi dan deskripsinya
 def main():
     message = "andreanludvinura"
 
